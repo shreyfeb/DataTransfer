@@ -7,13 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController1: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var textField: UITextField!
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showViewController2" {
+            let destinationVC = segue.destination as! ViewController2
+            destinationVC.receivedData = textField.text ?? ""
+        }
     }
-
-
 }
+
 
